@@ -1,3 +1,5 @@
+package org.example;
+
 import java.util.List;
 
 public class Clasa
@@ -6,6 +8,14 @@ public class Clasa
     NumarClasa numar;
     char litera;
     List<Elev> elevi;
+
+    public Clasa(Integer capacitate, NumarClasa numar, char litera, List<Elev> elevi)
+    {
+        this.capacitate = capacitate;
+        this.numar = numar;
+        this.litera = litera;
+        this.elevi = elevi;
+    }
 
     void addElev(Elev elev)
     {
