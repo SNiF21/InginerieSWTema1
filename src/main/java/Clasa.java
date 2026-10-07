@@ -1,8 +1,10 @@
+import java.util.List;
+
 public class Clasa
 {
-    Interfata capacitate;
+    Integer capacitate;
     NumarClasa numar;
-    litera Char;
+    char litera;
     List<Elev> elevi;
 
     void addElev(Elev elev)
@@ -10,5 +12,13 @@ public class Clasa
         elevi.add(elev);
     }
 
-    void remove
+    void removeElev(Elev elev)
+    {
+        elevi.remove(elev);
+    }
+
+    int getTotalElevi()
+    {
+        return elevi.size();
+    }
 }
