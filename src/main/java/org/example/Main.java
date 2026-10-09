@@ -1,5 +1,6 @@
 package org.example;
 
+import java.sql.SQLOutput;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -82,7 +83,20 @@ public class Main
         ActivitateExtra a1=new ActivitateExtra("Cor", p1);
         ActivitateExtra a2=new ActivitateExtra("Fotbal", p2);
 
-        System.out.println(" ");
+        a1.InscriereElev(e1);
+        a2.InscriereElev(e1);
+        a1.InscriereElev(e2);
+        a1.InscriereElev(e3);
+
+        scoala.addActivitateExtra(a1);
+        scoala.addActivitateExtra(a2);
+
+        System.out.println();
+        System.out.println("ACTIVITATI DESCRESCATOR");
         scoala.AfiseazaTopActivitati();
+
+        System.out.println();
+        System.out.println("ELEVI UNICI");
+        System.out.println(scoala.getTotalEleviInscrisiUnici());
     }
 }

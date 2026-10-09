@@ -1,6 +1,8 @@
 package org.example;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class Scoala
@@ -15,9 +17,29 @@ public class Scoala
         activitatiValabile = new HashMap<>();
     }
 
+
     public void AfiseazaTopActivitati()
     {
-        System.out.println(activitatiValabile.values());
+        List<ActivitateExtra> lista = new ArrayList<>(activitatiValabile.values());
+
+        for (int i = 0; i < lista.size() - 1; i++)
+        {
+            for (int j = i + 1; j < lista.size(); j++)
+            {
+                if (lista.get(j).eleviInscrisi.size() > lista.get(i).eleviInscrisi.size())
+                {
+                    ActivitateExtra aux = lista.get(i);
+                    lista.set(i, lista.get(j));
+                    lista.set(j, aux);
+                }
+            }
+        }
+
+        for (int i = 0; i < lista.size(); i++)
+        {
+            ActivitateExtra a = lista.get(i);
+            System.out.println(a.numeActivitate + " " + a.eleviInscrisi.size() + " elevi inscrisi");
+        }
     }
 
     void addActivitateExtra(ActivitateExtra activitate)
@@ -73,6 +95,23 @@ public class Scoala
         {
             int i = 0;
             total += c.elevi.size();
+        }
+        return total;
+    }
+
+    int getTotalEleviInscrisiUnici()
+    {
+        int total = 0;
+        for (Clasa c : clase.values())
+        {
+            int i = 0;
+            while (i < c.elevi.size())
+            {
+                Elev e = c.elevi.get(i);
+                if (e.inscrisActivitate)
+                    total++;
+                i++;
+            }
         }
         return total;
     }
