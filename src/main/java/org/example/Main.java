@@ -75,5 +75,14 @@ public class Main
         System.out.println(scoala.getNumarClase());
         System.out.println(scoala.getTotalElevi());
         System.out.println(" ");
+
+        Profesor p1=new Profesor("Alex");
+        Profesor p2=new Profesor("Tudor");
+
+        ActivitateExtra a1=new ActivitateExtra("Cor", p1);
+        ActivitateExtra a2=new ActivitateExtra("Fotbal", p2);
+
+        System.out.println(" ");
+        scoala.AfiseazaTopActivitati();
     }
 }

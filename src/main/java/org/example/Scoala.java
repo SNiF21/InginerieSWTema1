@@ -1,14 +1,33 @@
 package org.example;
 
+import java.util.HashMap;
 import java.util.Map;
 
 public class Scoala
 {
     public Map<String, Clasa> clase;
 
+    public Map<String, ActivitateExtra> activitatiValabile;
+
     public Scoala(Map<String, Clasa> clase)
     {
         this.clase = clase;
+        activitatiValabile = new HashMap<>();
+    }
+
+    public void AfiseazaTopActivitati()
+    {
+        System.out.println(activitatiValabile.values());
+    }
+
+    void addActivitateExtra(ActivitateExtra activitate)
+    {
+        activitatiValabile.put(activitate.numeActivitate, activitate);
+    }
+
+    void removeActivitateExtra(ActivitateExtra activitate)
+    {
+        activitatiValabile.remove(activitate.numeActivitate, activitate);
     }
 
     void addClasa(String s, Clasa c)
